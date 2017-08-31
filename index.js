@@ -41,11 +41,10 @@ if (command == 'store') {
         process.exit();
     }
 
-    let aa = utils.parseStructure(moduleStructure);
-    dias.extendMutationTypes(fullMT, utils.normalizeFields(aa));
-    let code = utils.generate(storeHelper.makeStoreFile(aa, moduleName));
-    writeToFile(storePath + moduleName + '.js', code);
-    console.log(chalk.green('ADDED ') + chalk.yellow(storePath + moduleName + '.js'));
+    let stateFields = utils.parseStructure(moduleStructure);
+    let storeFilename = storePath + moduleName + '.js';
+    dias.extendMutationTypes(fullMT, utils.normalizeFields(stateFields));
+    dias.addStoreFile(stateFields, moduleName, storeFilename);
 }
 
 
