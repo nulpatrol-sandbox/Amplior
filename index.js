@@ -9,6 +9,7 @@ const nconf = require('nconf');
 
 const lib = require('./lib/file');
 const dias = require('./lib/diasHelper');
+const storeHelper = require('./lib/storeHelper');
 const utils = require('./lib/utils');
 const writeToFile = lib.writeToFile;
 
@@ -42,7 +43,7 @@ if (command == 'store') {
 
     let aa = utils.parseStructure(moduleStructure);
     dias.extendMutationTypes(fullMT, utils.normalizeFields(aa));
-    let code = dias.generate(dias.makeStoreFile(aa, moduleName));
+    let code = utils.generate(storeHelper.makeStoreFile(aa, moduleName));
     writeToFile(storePath + moduleName + '.js', code);
     console.log(chalk.green('ADDED ') + chalk.yellow(storePath + moduleName + '.js'));
 }
