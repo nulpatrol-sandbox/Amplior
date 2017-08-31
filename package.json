@@ -1,0 +1,26 @@
+{
+  "name": "vuegen-cli",
+  "version": "0.1.4",
+  "description": "Tool for Dias.team crew",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rost Khaniukov",
+  "license": "GPL-3.0",
+  "bin": {
+    "vuegen": "./index.js"
+  },
+  "dependencies": {
+    "acorn": "^5.1.1",
+    "camelize": "^1.0.0",
+    "chalk": "^2.0.1",
+    "decamelize": "^1.2.0",
+    "escodegen": "^1.8.1",
+    "esformatter": "^0.10.0",
+    "nconf": "^0.8.4"
+  },
+  "devDependencies": {
+    "esprima": "^4.0.0"
+  }
+}
