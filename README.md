@@ -1,9 +1,30 @@
-# VueGen-CLI
+# VueGen-CLI Tool
+### About
+Tool for generation JavaScript code for project.
+http://pksunkara.com/posts/complex-vuejs-app-structure/
+### Usage
+```sh
+$ vuegen store <moduleName> <stateStructure>
+```
 
-Tool for generation Scheppa-compatability project files
+where ```<stateStructure>``` is list of fields in state separated by "|". If field is object use "objectName(field1, field2, field3,...)" syntax.
 
-Usage: 
-    vuegen store <filename> <structure>
-
-e.g.
-    vuegen store lease "stepLease|buildType|leaseType|land(address, name, id, phone)|tennt(address, name,id, phone)"
+For example:
+```sh
+$ vuegen store contract "step|buildingType|contractType|tenant(address, name, id, phone)"
+```
+generates next state:
+```js
+const state = {
+    step: undefined,
+    buildingType: undefined,
+    contractType: undefined,
+    tenant: {
+        address: undefined,
+        name: undefined,
+        id: undefined,
+        phone: undefined,
+    }
+};
+```
+and getters, mutations, mutation types and mixins with computed fields.
