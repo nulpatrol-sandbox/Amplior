@@ -10,7 +10,6 @@ const nconf = require('nconf');
 const lib = require('./lib/file');
 const dias = require('./lib/diasHelper');
 const mixin = require('./lib/mixinHelper');
-const storeHelper = require('./lib/storeHelper');
 const utils = require('./lib/utils');
 const writeToFile = lib.writeToFile;
 
