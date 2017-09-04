@@ -5,30 +5,22 @@ const chalk = require('chalk');
 const os = require('os');
 const esprima = require('esprima');
 const path = require('path');
-const nconf = require('nconf');
 
 const lib = require('./lib/file');
 const dias = require('./lib/diasHelper');
 const mixin = require('./lib/mixinHelper');
 const utils = require('./lib/utils');
 const writeToFile = lib.writeToFile;
+const conf = require('./lib/Config');
 
-nconf.file('diasify.json');
-nconf.defaults({
-    'assetsDir': 'resources/assets/js/',
-    'storeDirName': 'store/',
-    'mixinsDirName': 'mixins/',
-    'mtFileName': 'mutation-types.js',
-});
-
-var assetsDir = nconf.get('assetsDir');
-if (typeof nconf.get('module') !== 'undefined') {
-    assetsDir = assetsDir + nconf.get('module') + '/';
+var assetsDir = conf.get('assetsDir');
+if (typeof conf.get('module') !== 'undefined') {
+    assetsDir = assetsDir + conf.get('module') + '/';
 }
 
-const fullMT = path.normalize(assetsDir + nconf.get('storeDirName') + nconf.get('mtFileName'));
-const storePath = path.normalize(assetsDir + nconf.get('storeDirName') + 'modules/');
-const mixinsPath = path.normalize(assetsDir + nconf.get('mixinsDirName'));
+const fullMT = path.normalize(assetsDir + conf.get('storeDirName') + conf.get('mtFileName'));
+const storePath = path.normalize(assetsDir + conf.get('storeDirName'));
+const mixinsPath = path.normalize(assetsDir + conf.get('mixinsDirName'));
 
 var command = process.argv[2];
 if (command == 'store') {

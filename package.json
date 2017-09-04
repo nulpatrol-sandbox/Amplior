@@ -8,6 +8,7 @@
   },
   "author": "Rost Khaniukov",
   "license": "GPL-3.0",
+  "keywords": [ "vue", "code generation" ],
   "bin": {
     "vuegen": "./index.js"
   },
@@ -22,5 +23,9 @@
   },
   "devDependencies": {
     "esprima": "^4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nulpatrol/vuegen-cli.git"
   }
 }
