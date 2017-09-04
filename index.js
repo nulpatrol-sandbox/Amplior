@@ -40,6 +40,6 @@ if (command == 'store') {
     let mixinFilename = mixinsPath + moduleName + 'Mixin.js';
 
     dias.extendMutationTypes(fullMT, utils.normalizeFields(stateFields));
-    dias.addStoreFile(stateFields, moduleName, storeFilename);
+    dias.addStoreFile(stateFields, moduleName, storePath);
     dias.addMixinFile(utils.normalizeFields(stateFields), mixinFilename);
 }
