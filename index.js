@@ -21,8 +21,15 @@ if (typeof conf.get('module') !== 'undefined') {
 const fullMT = path.normalize(assetsDir + conf.get('storeDirName') + conf.get('mtFileName'));
 const storePath = path.normalize(assetsDir + conf.get('storeDirName'));
 const mixinsPath = path.normalize(assetsDir + conf.get('mixinsDirName'));
+const routerPath = path.normalize(assetsDir + conf.get('routerDirName') + '/index.js');
+
+const argv = require('yargs').argv;
 
 var command = process.argv[2];
+if (argv._.indexOf('route:list') !== -1) {
+    dias.routeList(routerPath);
+}
+
 if (command == 'store') {
     var moduleName = process.argv[3];
     var moduleStructure = process.argv[4];
