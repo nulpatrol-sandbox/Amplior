@@ -1,6 +1,6 @@
 {
   "name": "amplior",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "description": "Tool for Dias.team crew",
   "main": "index.js",
   "scripts": {
@@ -22,10 +22,10 @@
     "decamelize": "^1.2.0",
     "escodegen": "^1.8.1",
     "esformatter": "^0.10.0",
+    "fs-extra": "^4.0.2",
+    "make-dir": "^1.0.0",
     "nconf": "^0.8.4",
-    "table": "^4.0.1"
-  },
-  "devDependencies": {
+    "table": "^4.0.1",
     "esprima": "^4.0.0",
     "yargs": "^9.0.1"
   },
