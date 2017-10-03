@@ -11,7 +11,6 @@ if (typeof conf.get('module') !== 'undefined') {
     assetsDir = assetsDir + conf.get('module') + '/';
 }
 
-const fullMT = path.normalize(assetsDir + conf.get('storeDirName') + conf.get('mtFileName'));
 const storePath = path.normalize(assetsDir + conf.get('storeDirName'));
 const mixinsPath = path.normalize(assetsDir + conf.get('mixinsDirName'));
 const routerPath = path.normalize(assetsDir + conf.get('routerDirName') + '/index.js');
@@ -23,8 +22,7 @@ require('yargs')
     })
     .command(['store:make <module_name> <module_structure>'], 'Make store', {}, (argv) => {
         let stateFields = utils.parseStructure(argv.module_structure);
-        dias.extendMutationTypes(fullMT, utils.normalizeFields(stateFields));
-        dias.addStoreFile(stateFields, argv.module_name, storePath);
+        dias.addStoreModule(stateFields, argv.module_name, storePath);
     })
     .command(['lang:fix'], 'Fix lang files', {}, (argv) => {
         dias.fixLanguages(langDirPath);
