@@ -30,24 +30,3 @@ require('yargs')
     .help()
     .demandCommand()
     .argv;
-
-/*var command = process.argv[2];
-if (command == 'store') {
-    var moduleName = process.argv[3];
-    var moduleStructure = process.argv[4];
-    if (typeof moduleName === 'undefined') {
-        console.log(chalk.red('Please specify module name.'));
-        process.exit();
-    }
-    if (typeof moduleStructure === 'undefined') {
-        console.log(chalk.red('Please specify module structure.'));
-        process.exit();
-    }
-
-    let stateFields = utils.parseStructure(moduleStructure);
-    let storeFilename = storePath + moduleName + '.js';
-    let mixinFilename = mixinsPath + moduleName + 'Mixin.js';
-
-    
-    dias.addMixinFile(utils.normalizeFields(stateFields), mixinFilename);
-}*/
