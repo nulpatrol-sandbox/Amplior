@@ -1,14 +1,8 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const chalk = require('chalk');
-const os = require('os');
-const esprima = require('esprima');
 const path = require('path');
 
-const lib = require('./lib/file');
 const dias = require('./lib/diasHelper');
-const mixin = require('./lib/mixinHelper');
 const utils = require('./lib/utils');
 const conf = require('./lib/Config');
 
@@ -29,9 +23,7 @@ require('yargs')
     })
     .command(['store:make <module_name> <module_structure>'], 'Make store', {}, (argv) => {
         let stateFields = utils.parseStructure(argv.module_structure);
-        let storeFolderName = storePath + argv.module_name;
-        let mixinFilename = mixinsPath + argv.module_name + '.js';
-        //dias.extendMutationTypes(fullMT, utils.normalizeFields(stateFields));
+        dias.extendMutationTypes(fullMT, utils.normalizeFields(stateFields));
         dias.addStoreFile(stateFields, argv.module_name, storePath);
     })
     .command(['lang:fix'], 'Fix lang files', {}, (argv) => {
